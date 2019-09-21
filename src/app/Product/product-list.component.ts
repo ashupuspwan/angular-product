@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ProductListService } from './product-list.service';
 
 
 @Component({
@@ -7,33 +8,13 @@ import { Component } from "@angular/core";
 })
 export class ProductListComponent{
     pageTitle: string = " ABC Product List";
-    products: any[] = [
-         {
-             "productId": 1,
-             "productName": "MI A4",
-             "productCode": "MI001",
-             "releaseDate": "March 18 2019",
-             "description": "MI mobile phone",
-             "price": 15000,
-             "imageUrl": ""
-         },
-         {
-            "productId": 2,
-            "productName": "MI Pro 7",
-            "productCode": "MIPRO001",
-            "releaseDate": "March 18 2019",
-            "description": "MI mobile phone",
-            "price": 20000,
-            "imageUrl": ""
-        },
-        {
-            "productId": 3,
-            "productName": "MI X",
-            "productCode": "MIX001",
-            "releaseDate": "March 18 2019",
-            "description": "MI mobile phone",
-            "price": 21000,
-            "imageUrl": ""
-        }
-    ];
+    products;
+
+    /**
+     *service 
+     */
+    constructor(service:ProductListService) {
+        //let service = new ProductListService(); // new keword tightly coupled the app, use DI.
+        this.products = service.getProductList();   
+    }
 }
