@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ProductListService } from './product-list.service';
+import { IProduct } from './product';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductListComponent{
     imageMargin: number =2;
     showImage: boolean = false;
     listFilter: string = 'Mi';
-    products;
+    products: IProduct[];
 
     /**
      *service 

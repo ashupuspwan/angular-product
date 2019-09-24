@@ -1,3 +1,4 @@
+import { IProduct } from './product';
 
 export class ProductListService{
     getProductList(){
