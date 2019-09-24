@@ -6,7 +6,7 @@ export class ProductListService{
             {
                 "productId": 1,
                 "productName": "MI 7Pro",
-                "productCode": "MI001",
+                "productCode": "MI-001",
                 "releaseDate": "March 18 2019",
                 "description": "MI mobile phone",
                 "price": 15000,
@@ -15,7 +15,7 @@ export class ProductListService{
             {
                "productId": 2,
                "productName": "MI Note 5",
-               "productCode": "MIPRO001",
+               "productCode": "MI-PRO-001",
                "releaseDate": "March 18 2019",
                "description": "MI dual camera mobile phone",
                "price": 20000,
@@ -24,7 +24,7 @@ export class ProductListService{
            {
                "productId": 3,
                "productName": "MI K20",
-               "productCode": "MIK2001",
+               "productCode": "MI-K20-001",
                "releaseDate": "March 18 2019",
                "description": "MI mobile phone",
                "price": 21000,
