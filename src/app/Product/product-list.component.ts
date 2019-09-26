@@ -13,8 +13,18 @@ export class ProductListComponent{
     imageWidth: number = 50;
     imageMargin: number =2;
     showImage: boolean = false;
-    listFilter: string = 'Mi';
+    _listFilter: string = ' ';
     products: IProduct[];
+    filterProduct: IProduct[];
+    
+    get listFilter():string {
+        return this._listFilter;
+    }
+
+    set listFilter(value: string){
+        this._listFilter = value;
+        this.filterProduct = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+    }
 
     /**
      *service 
@@ -22,9 +32,19 @@ export class ProductListComponent{
     constructor(service:ProductListService) {
         //let service = new ProductListService(); // new keword tightly coupled the app, use DI.
         this.products = service.getProductList();   
+        this.filterProduct = this.products;
+        this.listFilter = 'Mi';
     }
 
     toogleImage():void {
         this.showImage = !this.showImage;
     }
+
+    performFilter(filterBy: string): IProduct[]{
+      
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.products.filter((product: IProduct) =>
+                    product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
 }

@@ -10,7 +10,7 @@ export class ConvertToSpacesPipe implements PipeTransform {
     transform(value: string, char:string) {
         //ToDo convert string having multiple '-' charcacter.
         //convert input value parameter to array of string and iterate through it
-        return value.replace(char,' ');
+         return value.replace(char,' ');
     }
 
 
