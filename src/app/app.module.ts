@@ -17,7 +17,7 @@ import { ProductListService } from './Product/product-list.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [ProductListService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

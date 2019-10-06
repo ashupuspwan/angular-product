@@ -1,5 +1,9 @@
 import { IProduct } from './product';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ProductListService{
     getProductList(){
         return  [
@@ -10,7 +14,8 @@ export class ProductListService{
                 "releaseDate": "March 18 2019",
                 "description": "MI mobile phone",
                 "price": 15000,
-                "imageUrl": "assets/images/7s.jpeg"
+                "imageUrl": "assets/images/7s.jpeg",
+                "starRating": 4
             },
             {
                "productId": 2,
@@ -19,7 +24,8 @@ export class ProductListService{
                "releaseDate": "March 18 2019",
                "description": "MI dual camera mobile phone",
                "price": 20000,
-               "imageUrl": "assets/images/note5.jpeg"
+               "imageUrl": "assets/images/note5.jpeg",
+               "starRating": 4
            },
            {
                "productId": 3,
@@ -28,7 +34,8 @@ export class ProductListService{
                "releaseDate": "March 18 2019",
                "description": "MI mobile phone",
                "price": 21000,
-               "imageUrl": "assets/images/k20.jpeg"
+               "imageUrl": "assets/images/k20.jpeg",
+               "starRating": 4
            }
        ];
     }
