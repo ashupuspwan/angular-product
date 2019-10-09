@@ -7,7 +7,7 @@ import { IProduct } from './product';
     selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
-})
+    })
 export class ProductListComponent{
     pageTitle: string = " ABC Product List";
     imageWidth: number = 50;
@@ -29,11 +29,9 @@ export class ProductListComponent{
     /**
      *service 
      */
-    constructor(service:ProductListService) {
+    constructor(private service:ProductListService) {
         //let service = new ProductListService(); // new keword tightly coupled the app, use DI.
-        this.products = service.getProductList();   
-        this.filterProduct = this.products;
-        this.listFilter = 'Mi';
+               
     }
 
     toogleImage():void {
@@ -45,6 +43,12 @@ export class ProductListComponent{
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) =>
                     product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
+    ngOnInit(): void{
+        this.products = this.service.getProductList();
+        this.filterProduct = this.products;
+        this._listFilter = "Mi";
     }
 
 }

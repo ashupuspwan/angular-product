@@ -28,6 +28,7 @@
                         <th>Code</th>
                         <th>Price</th>
                         <th>Release Date</th>
+                        <th>Star Rating</th>
                     </tr>
                 </thead>
                 <tr *ngFor = "let product of filterProduct">
@@ -43,6 +44,7 @@
                     <td>{{product.productCode | convertToSpaces:'-'}}</td>
                     <td>{{product.price | currency:'INR'}}</td>
                     <td>{{product.releaseDate}}</td>
+                    <td>{{product.starRating | number}}</td>
                 </tr>
                 <tbody>
                     
