@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { HttpClientModule} from '@angular/common/http';
 import { ProductListService } from './product-list.service';
 import { IProduct } from './product';
 
@@ -16,6 +17,7 @@ export class ProductListComponent{
     _listFilter: string = ' ';
     products: IProduct[];
     filterProduct: IProduct[];
+    errorMessage: string;
     
     get listFilter():string {
         return this._listFilter;
@@ -46,8 +48,14 @@ export class ProductListComponent{
     }
 
     ngOnInit(): void{
-        this.products = this.service.getProductList();
-        this.filterProduct = this.products;
+        this.service.getProductList().subscribe({
+            next: products => {
+                this.products = products
+                this.filterProduct = this.products;
+            },
+            error: err => this.errorMessage = err
+        });
+       
         this._listFilter = "Mi";
     }
 
